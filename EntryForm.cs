@@ -12,6 +12,8 @@ namespace FinalProject
 {
     public partial class EntryForm : Form
     {
+        
+
         public EntryForm()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace FinalProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void logBtn_Click(object sender, EventArgs e)

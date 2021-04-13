@@ -16,5 +16,10 @@ namespace FinalProject
         {
             InitializeComponent();
         }
+
+        private void LogTicket_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

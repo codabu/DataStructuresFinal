@@ -85,7 +85,7 @@ namespace FinalProject
             this.Controls.Add(this.logBtn);
             this.Name = "EntryForm";
             this.Text = "Ticketing System";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.EntryForm_Load);
             this.ResumeLayout(false);
 
         }

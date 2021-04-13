@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
+
     /***************************************************************
     * Name        : LinkedList
     * Author      : Corry Burton
@@ -13,17 +14,14 @@ namespace FinalProject
     ***************************************************************/
 
 
-    /***************************************************************
-   * Name        : LinkedList
-   * Author      : Corry Burton
-   * Created     : 2/23/2021
-   ***************************************************************/
-
-
     public class LinkedList
     {
         //head of the LL
         private Node Head { get; set; }
+
+        //sorted value
+        private Node Sorted { get; set; }
+
         //attribute for size of the LL
         private int Size { get; set; }
         //attribute for maximum size of the LL
@@ -185,12 +183,12 @@ namespace FinalProject
         * Input: none
         * Output: returns the ticket object from the first node
         ***************************************************************/
-        public Ticket peekFirst()
+        public Node peekFirst()
         {
             //if the linkedList has item/items return the first ticket
             if (Size != 0)
             {
-                return Head.ticket;
+                return Head;
             }
             else throw new EmptyException();
         }
@@ -336,6 +334,67 @@ namespace FinalProject
             }
 
             return output;
+        }
+
+        public void insertionSort()
+        {
+            // Initialize sorted linked list
+            Sorted = null;
+            Node current = Head;
+
+            // Traverse the given 
+            // linked list and insert every
+            // node to sorted
+            while (current != null)
+            {
+                // Store next for next iteration
+                Node next = current.next;
+
+                // insert current in sorted linked list
+                sortedInsert(current);
+
+                // Update current
+                current = next;
+            }
+
+            // Update head_ref to point to sorted linked list
+            Head = Sorted;
+        }
+
+        public void sortedInsert(Node newnode)
+        {
+            /* Special case for the head end */
+            if (Sorted == null || Sorted.ticket.Number >= newnode.ticket.Number)
+            {
+                newnode.next = Sorted;
+                Sorted = newnode;
+            }
+            else
+            {
+                Node current = Sorted;
+
+                /* Locate the node before the point of insertion */
+                while (current.next != null &&
+                        current.next.ticket.Number < newnode.ticket.Number)
+                {
+                    current = current.next;
+                }
+                newnode.next = current.next;
+                current.next = newnode;
+            }
+        }
+
+        public int lastNumber()
+        {
+            int lastNumber = 0;
+            Node temp = Head;
+
+            while (temp.next != null)
+            {
+                temp = temp.next;
+            }
+            lastNumber = temp.ticket.Number;
+            return lastNumber;
         }
     }
 }

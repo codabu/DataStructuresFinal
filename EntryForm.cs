@@ -12,21 +12,27 @@ namespace FinalProject
 {
     public partial class EntryForm : Form
     {
-        
+        public static LinkedList LL { get; set; }
 
         public EntryForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public EntryForm(LinkedList ll)
         {
-            
+            InitializeComponent();
+            LL = ll;
+        }
+
+        private void EntryForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void logBtn_Click(object sender, EventArgs e)
         {
-            LogTicket newForm = new LogTicket();
+            LogTicket newForm = new LogTicket(LL);
             this.Hide();
             newForm.ShowDialog();
             this.Show();
@@ -34,7 +40,7 @@ namespace FinalProject
 
         private void techBtn_Click(object sender, EventArgs e)
         {
-            TechForm newForm = new TechForm();
+            TechForm newForm = new TechForm(LL);
             this.Hide();
             newForm.ShowDialog();
             this.Show();
@@ -44,5 +50,6 @@ namespace FinalProject
         {
             this.Close();
         }
+
     }
 }

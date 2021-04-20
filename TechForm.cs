@@ -96,22 +96,77 @@ namespace FinalProject
             }
             else { nextBtn.Visible = true; }
 
+            getAssigneeData();
             numberLabel.Text = tlist[current].Number.ToString();
             infoTb.Text = tlist[current].Info;
-            priorityLabel.Text = getPriority(tlist[current].Priority);
-            reporterLabel.Text = tlist[current].Reporter;
-            assigneeLabel.Text = tlist[current].Assignee;
+            getPriorityData(tlist[current].Priority);
+            reporterTb.Text = tlist[current].Reporter;
         }
 
-        private string getPriority (int priority)
+        private void getPriorityData (int priority)
         {
             switch (priority)
             {
-                case 1: return "High";
-                case 2: return "Medium";
-                case 3: return "Low";
-                default: return "Low";
+                case 1: 
+                    { 
+                        priorityCombo.DataSource = new string[] { "High", "Medium", "Low" }; 
+                        break; 
+                    }
+                case 2:
+                    {
+                        priorityCombo.DataSource = new string[] { "Medium", "High", "Low" }; 
+                        break;
+                    }
+                case 3:
+                    {
+                        priorityCombo.DataSource = new string[] { "Low", "Medium", "High" };
+                        break;
+                    }
+                default:
+                    {
+                        priorityCombo.DataSource = new string[] { "Low", "Medium", "High" };
+                        break;
+                    }
             }
+        }
+
+        private void setPriority(string selected)
+        {
+            switch (selected)
+            {
+                case "High":
+                    {
+                        tlist[current].Priority = 1;
+                        break;
+                    }
+                case "Medium":
+                    {
+                        tlist[current].Priority = 2;
+                        break;
+                    }
+                case "Low":
+                    {
+                        tlist[current].Priority = 3;
+                        break;
+                    }
+            }
+        }
+
+        private void getAssigneeData()
+        {
+            string currentAssignee = tlist[current].Assignee;
+            string [] temp = new string[] { "Corry", "Jarrod", "Alexis", "Unassigned"};
+
+            List<string> data = new List<String>();
+            data.Add(currentAssignee);
+            foreach (string s in temp)
+            {
+                if (s!= currentAssignee)
+                {
+                    data.Add(s);
+                }
+            }
+            assigneeCombo.DataSource = data;
         }
 
         private void filterCombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,16 +196,32 @@ namespace FinalProject
                 EntryForm.LL = ll;
         }
 
-        private void assigneeBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string assignee = assigneeBox.SelectedItem.ToString();
-            tlist[current].Assignee = assignee;
-            displayTicket();
-        }
-
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            //allow editing of fields
+            infoTb.ReadOnly = false;
+            reporterTb.ReadOnly = false; 
+            assigneeCombo.Enabled = true;
+            priorityCombo.Enabled = true;
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            tlist[current].Info = infoTb.Text;
+            tlist[current].Reporter = reporterTb.Text;
+            tlist[current].Assignee = assigneeCombo.SelectedItem.ToString();
+            setPriority(priorityCombo.SelectedItem.ToString());
+
+            assigneeCombo.Enabled = false;
+            priorityCombo.Enabled = false;
+            infoTb.ReadOnly = true;
+            reporterTb.ReadOnly = true;
+            displayTicket();
         }
     }
 }

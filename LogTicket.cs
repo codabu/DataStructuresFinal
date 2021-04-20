@@ -39,10 +39,10 @@ namespace FinalProject
             errorLabel.Text = "";
             if (checkInput())
             {
-                Ticket newTicket = new Ticket(newNumber, infoTb.Text, (getPriority(priorityBox.Text)), reporterTb.Text, "Unassigned");
+                Ticket newTicket = new Ticket(newNumber, infoTb.Text, (getPriority(priorityBox.Text)), reporterTb.Text);
                 LL.addLast(newTicket);
                 errorLabel.Text = "";
-                MessageBox.Show("Ticket " + newTicket + "submitted");
+                MessageBox.Show("Ticket " + newTicket.Number + " submitted" + System.Environment.NewLine + "Someone will be in touch to assist you at our earliest convenience.");
                 this.Close();
             }
         }

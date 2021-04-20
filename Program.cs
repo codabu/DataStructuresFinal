@@ -19,11 +19,11 @@ namespace FinalProject
             
 
             LinkedList LL = new LinkedList(10);
-            Ticket ticket1 = new Ticket(1000, "Computer is broke", 2, "User 1", "Unassigned");
-            Ticket ticket2 = new Ticket(1001, "Monitor not working", 1, "Rob Johnston", "Unassigned");
-            Ticket ticket3 = new Ticket(1003, "Won't turn on", 3, "Bob Smith", "Unassigned");
-            Ticket ticket4 = new Ticket(1002, "Makes loud noises", 2, "Kylee Jones", "Unassigned");
-            Ticket ticket5 = new Ticket(1004, "Internet not working", 3, "Aria Stark", "Unassigned");
+            Ticket ticket1 = new Ticket(1000, "Computer is broke", 2, "User 1");
+            Ticket ticket2 = new Ticket(1001, "Monitor not working", 1, "Rob Johnston");
+            Ticket ticket3 = new Ticket(1003, "Won't turn on", 3, "Bob Smith");
+            Ticket ticket4 = new Ticket(1002, "Makes loud noises", 2, "Kylee Jones");
+            Ticket ticket5 = new Ticket(1004, "Internet not working", 3, "Aria Stark");
             LL.addLast(ticket1);
             LL.addLast(ticket2);
             LL.addLast(ticket3);

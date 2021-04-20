@@ -19,13 +19,13 @@ namespace FinalProject
 
         }
 
-        public Ticket(int number, string info, int priority, string reporter, string assignee)
+        public Ticket(int number, string info, int priority, string reporter)
         {
             _number = number;
             _info = info;
             _priority = priority;
             _reporter = reporter;
-            _assignee = assignee;
+            _assignee = "Unassigned";
         }
 
         public int Number

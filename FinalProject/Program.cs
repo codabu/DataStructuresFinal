@@ -18,7 +18,7 @@ namespace FinalProject
             Application.SetCompatibleTextRenderingDefault(false);
             
 
-            LinkedList LL = new LinkedList(10);
+            LinkedList LL = new LinkedList(1000);
             Ticket ticket1 = new Ticket(1000, "Computer is broke", 2, "User 1");
             Ticket ticket2 = new Ticket(1001, "Monitor not working", 1, "Rob Johnston");
             Ticket ticket3 = new Ticket(1003, "Won't turn on", 3, "Bob Smith");

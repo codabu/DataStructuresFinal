@@ -2,7 +2,7 @@ using FinalProject;
 using System;
 using Xunit;
 
-namespace Test
+namespace Test.LinkedListTests
 {
     public class AddTests
     {

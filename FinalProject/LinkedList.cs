@@ -10,7 +10,7 @@ namespace FinalProject
     /***************************************************************
     * Name        : LinkedList
     * Author      : Corry Burton
-    * Created     : 2/23/2021
+    * Created     : 04/12/2021
     ***************************************************************/
 
 
@@ -337,35 +337,46 @@ namespace FinalProject
         }
 
 
-        //CLEAN UP THESE COMMENTS
+        /**************************************************************
+        * Name: insertionSort
+        * Description: sorts the 
+        * Input: None
+        * Output: Sorts the linkedlist using an insertion sort based on the ticket numbers
+        ***************************************************************/
+
         public void insertionSort()
         {
-            // Initialize sorted linked list
+            // Initialize the sorted linked list
             Sorted = null;
             Node current = Head;
 
-            // Traverse the given 
-            // linked list and insert every
-            // node to sorted
+            // Traverse the linked list and insert every node to sorted
             while (current != null)
             {
-                // Store next for next iteration
+                // Store next for the next iteration
                 Node next = current.next;
 
                 // insert current in sorted linked list
                 sortedInsert(current);
 
-                // Update current
+                // Update the current node
                 current = next;
             }
 
-            // Update head_ref to point to sorted linked list
+            // Update Head to point to the sorted linked list
             Head = Sorted;
         }
 
+        /**************************************************************
+        * Name: sortedInsert
+        * Description: Method used by the insertionSort method to perform the sorting
+        * Input: Node newnode
+        * Output: Sorts the linkedlist using an insertion sort based on the ticket numbers
+        ***************************************************************/
+
         public void sortedInsert(Node newnode)
         {
-            /* Special case for the head end */
+            // Special case for the head end
             if (Sorted == null || Sorted.ticket.Number >= newnode.ticket.Number)
             {
                 newnode.next = Sorted;
@@ -375,7 +386,7 @@ namespace FinalProject
             {
                 Node current = Sorted;
 
-                /* Locate the node before the point of insertion */
+                // Locate the node before where I'm inserting
                 while (current.next != null &&
                         current.next.ticket.Number < newnode.ticket.Number)
                 {
@@ -386,6 +397,12 @@ namespace FinalProject
             }
         }
 
+        /**************************************************************
+        * Name: lastNumber
+        * Description: Method used to get the highest value ticket number (used to generate the next ticket number)
+        * Input: None
+        * Output: returns an int that is the highest ticket number
+        ***************************************************************/
         public int lastNumber()
         {
             int lastNumber = 0;

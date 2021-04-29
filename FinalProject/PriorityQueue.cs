@@ -6,25 +6,68 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
+    /***************************************************************
+    * Name        : Priority Queue
+    * Author      : Corry Burton
+    * Created     : 04/12/2021
+    ***************************************************************/
+    
+
+
     public class PriorityQueue
     {
         private LinkedList LL { get; set; }
+
+        /**************************************************************
+        * Constructors
+        ***************************************************************/
+        /**************************************************************
+        * Name: PriorityQueue
+        * Description: Default no-arg constructor
+        * Input parameters: none
+        *   Initializes a LinkedList
+        ***************************************************************/
+
         public PriorityQueue()
         {
             //intialize the LinkedList
-            LL = new LinkedList(100);
+            LL = new LinkedList(1000);
         }
+
+
+        /**************************************************************
+        * Name: PriorityQueue
+        * Description: Constructor that accepts a LinkedList
+        * Input: LinkedList LL
+        ***************************************************************/
 
         public PriorityQueue(LinkedList ll)
         {
             LL = ll;
         }
 
+        /***************************************************************
+        * Class Functions
+        ***************************************************************/
+        /**************************************************************
+        * Name: getLL
+        * Description: Simple function to return the Linked List
+        * Input: None
+        * Output: returns the LL field
+        ***************************************************************/
+
         public LinkedList getLL()
         {
             return this.LL;
         }
 
+
+        /**************************************************************
+        * Name: Enqueue
+        * Description: Adds a ticket to the priority queue
+        * Input: Ticket t
+        * Output: Goes through the linked list and inserts the ticket based on its priority
+        ***************************************************************/
         public void Enqueue(Ticket t)
         {
 
@@ -78,6 +121,13 @@ namespace FinalProject
 
         }
 
+        /**************************************************************
+        * Name: Dequeue
+        * Description: Dequeue function, not actually used in the program
+        * Input: None
+        * Output: Takes the first ticket from the program, removes it and returns it
+        ***************************************************************/
+
         /// public Dequeue()
         public Ticket Dequeue()
         {
@@ -85,6 +135,14 @@ namespace FinalProject
             LL.removeFirst();
             return temp;
         }
+
+
+        /**************************************************************
+        * Name: Display
+        * Description: Displays the linkedlist
+        * Input: None
+        * Output: Outputs the tickets in the linkedlist
+        ***************************************************************/
 
         public void Display()
         {

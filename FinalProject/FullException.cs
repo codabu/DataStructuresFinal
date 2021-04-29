@@ -4,6 +4,12 @@ using System.Text;
 
 namespace FinalProject
 {
+    /***************************************************************
+    * Name        : FullException
+    * Author      : Corry Burton
+    ***************************************************************/
+
+
     public class FullException : Exception
     {
         public override string Message

@@ -23,6 +23,7 @@ namespace FinalProject
         //fields - LL to hold the Linked List and newNumber to hold the next ticket number
         public LinkedList LL { get; set; }
         public int newNumber;
+        public Validate validate { get; set; }
 
         /**************************************************************
         * Constructors
@@ -49,6 +50,7 @@ namespace FinalProject
         {
             InitializeComponent();
             LL = ll;
+            validate = new Validate();
         }
 
 
@@ -82,7 +84,8 @@ namespace FinalProject
         private void submitBtn_Click(object sender, EventArgs e)
         {
             errorLabel.Text = "";
-            if (checkInput())
+
+            if (validate.CheckInput(reporterTb.Text, infoTb.Text) == "")
             {
                 Ticket newTicket = new Ticket(newNumber, infoTb.Text, (getPriority(priorityBox.Text)), reporterTb.Text);
                 LL.addLast(newTicket);
@@ -90,6 +93,8 @@ namespace FinalProject
                 MessageBox.Show("Ticket " + newTicket.Number + " submitted" + System.Environment.NewLine + "Someone will be in touch to assist you at our earliest convenience.");
                 this.Close();
             }
+
+            else { errorLabel.Text = validate.CheckInput(reporterTb.Text, infoTb.Text); }
         }
 
 

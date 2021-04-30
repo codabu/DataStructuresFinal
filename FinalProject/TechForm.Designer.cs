@@ -30,6 +30,7 @@ namespace FinalProject
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.assigneeLabel = new System.Windows.Forms.Label();
             this.reporterLabel = new System.Windows.Forms.Label();
             this.priorityLabel = new System.Windows.Forms.Label();
@@ -45,12 +46,13 @@ namespace FinalProject
             this.nextBtn = new System.Windows.Forms.Button();
             this.assigneeCombo = new System.Windows.Forms.ComboBox();
             this.numberLabel = new System.Windows.Forms.Label();
-            this.infoLabel = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.errorLabel);
             this.groupBox.Controls.Add(this.infoLabel);
             this.groupBox.Controls.Add(this.assigneeLabel);
             this.groupBox.Controls.Add(this.reporterLabel);
@@ -70,10 +72,19 @@ namespace FinalProject
             this.groupBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.Location = new System.Drawing.Point(12, 12);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(499, 354);
+            this.groupBox.Size = new System.Drawing.Size(499, 432);
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Ticket Number:";
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Location = new System.Drawing.Point(20, 66);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(90, 15);
+            this.infoLabel.TabIndex = 24;
+            this.infoLabel.Text = "Description: ";
             // 
             // assigneeLabel
             // 
@@ -121,7 +132,7 @@ namespace FinalProject
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(330, 317);
+            this.saveBtn.Location = new System.Drawing.Point(330, 390);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(74, 31);
             this.saveBtn.TabIndex = 18;
@@ -131,7 +142,7 @@ namespace FinalProject
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(227, 317);
+            this.editBtn.Location = new System.Drawing.Point(227, 390);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(74, 31);
             this.editBtn.TabIndex = 17;
@@ -141,7 +152,7 @@ namespace FinalProject
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(425, 317);
+            this.exitBtn.Location = new System.Drawing.Point(425, 390);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(51, 31);
             this.exitBtn.TabIndex = 16;
@@ -182,7 +193,7 @@ namespace FinalProject
             // 
             // prevBtn
             // 
-            this.prevBtn.Location = new System.Drawing.Point(16, 317);
+            this.prevBtn.Location = new System.Drawing.Point(16, 390);
             this.prevBtn.Name = "prevBtn";
             this.prevBtn.Size = new System.Drawing.Size(74, 31);
             this.prevBtn.TabIndex = 12;
@@ -192,7 +203,7 @@ namespace FinalProject
             // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(122, 317);
+            this.nextBtn.Location = new System.Drawing.Point(122, 390);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(74, 31);
             this.nextBtn.TabIndex = 11;
@@ -218,20 +229,20 @@ namespace FinalProject
             this.numberLabel.Size = new System.Drawing.Size(66, 23);
             this.numberLabel.TabIndex = 4;
             // 
-            // infoLabel
+            // errorLabel
             // 
-            this.infoLabel.AutoSize = true;
-            this.infoLabel.Location = new System.Drawing.Point(20, 66);
-            this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(90, 15);
-            this.infoLabel.TabIndex = 24;
-            this.infoLabel.Text = "Description: ";
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorLabel.Location = new System.Drawing.Point(250, 311);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 15);
+            this.errorLabel.TabIndex = 25;
             // 
             // TechForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 390);
+            this.ClientSize = new System.Drawing.Size(538, 456);
             this.Controls.Add(this.groupBox);
             this.Name = "TechForm";
             this.Text = "IT - View Tickets";
@@ -262,5 +273,6 @@ namespace FinalProject
         private System.Windows.Forms.Label reporterLabel;
         private System.Windows.Forms.Label priorityLabel;
         private System.Windows.Forms.Label infoLabel;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

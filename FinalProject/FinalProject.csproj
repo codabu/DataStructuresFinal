@@ -71,6 +71,7 @@
       <DependentUpon>TechForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Ticket.cs" />
+    <Compile Include="Validate.cs" />
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>

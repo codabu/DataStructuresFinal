@@ -28,6 +28,8 @@ namespace FinalProject
         public LinkedList ll { get; set; }
         //List object of tickets
         public List<Ticket> tlist;
+        //Validate class
+        public Validate validate { get; set; }
         
         //initialize priority queue object for sorting by priority
         PriorityQueue pq = new PriorityQueue();
@@ -57,7 +59,40 @@ namespace FinalProject
             InitializeComponent();
             //set the linked list field
             this.ll = ll;
+            //set the validate class
+            this.validate = new Validate();
         }
+
+        public void setReporter(string input)
+        {
+            this.reporterTb.Text = input;
+        }
+
+        public string getReporter()
+        {
+            return this.reporterTb.Text;
+        }
+
+        public void setInfo(string input)
+        {
+            this.infoTb.Text = input;
+        }
+
+        public string getInfo()
+        {
+            return this.infoTb.Text;
+        }
+
+        public string getErrorLabel()
+        {
+            return this.errorLabel.Text;
+        }
+
+        public void setErrorLabel(string input)
+        {
+            this.errorLabel.Text = input;
+        }
+
         /**************************************************************
         * Name: TechForm_Load
         * Description: Function that runs set up/reset of the form on load
@@ -325,16 +360,23 @@ namespace FinalProject
         ***************************************************************/
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            tlist[current].Info = infoTb.Text;
-            tlist[current].Reporter = reporterTb.Text;
-            tlist[current].Assignee = assigneeCombo.SelectedItem.ToString();
-            setPriority(priorityCombo.SelectedItem.ToString());
+            errorLabel.Text = "";
 
-            assigneeCombo.Enabled = false;
-            priorityCombo.Enabled = false;
-            infoTb.ReadOnly = true;
-            reporterTb.ReadOnly = true;
-            displayTicket();
+            if (validate.CheckInput(reporterTb.Text, infoTb.Text) == "")
+            {
+                tlist[current].Info = infoTb.Text;
+                tlist[current].Reporter = reporterTb.Text;
+                tlist[current].Assignee = assigneeCombo.SelectedItem.ToString();
+                setPriority(priorityCombo.SelectedItem.ToString());
+
+                assigneeCombo.Enabled = false;
+                priorityCombo.Enabled = false;
+                infoTb.ReadOnly = true;
+                reporterTb.ReadOnly = true;
+                displayTicket();
+            }
+
+            else { errorLabel.Text = validate.CheckInput(reporterTb.Text, infoTb.Text); }
         }
     }
 }

@@ -30,6 +30,7 @@ namespace FinalProject
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.infoLabel = new System.Windows.Forms.Label();
             this.assigneeLabel = new System.Windows.Forms.Label();
             this.reporterLabel = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@ namespace FinalProject
             this.nextBtn = new System.Windows.Forms.Button();
             this.assigneeCombo = new System.Windows.Forms.ComboBox();
             this.numberLabel = new System.Windows.Forms.Label();
-            this.errorLabel = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,15 @@ namespace FinalProject
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Ticket Number:";
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorLabel.Location = new System.Drawing.Point(137, 311);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 15);
+            this.errorLabel.TabIndex = 25;
             // 
             // infoLabel
             // 
@@ -228,15 +237,6 @@ namespace FinalProject
             this.numberLabel.Name = "numberLabel";
             this.numberLabel.Size = new System.Drawing.Size(66, 23);
             this.numberLabel.TabIndex = 4;
-            // 
-            // errorLabel
-            // 
-            this.errorLabel.AutoSize = true;
-            this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(250, 311);
-            this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(0, 15);
-            this.errorLabel.TabIndex = 25;
             // 
             // TechForm
             // 
